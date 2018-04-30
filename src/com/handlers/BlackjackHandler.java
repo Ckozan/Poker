@@ -1,24 +1,23 @@
 package com.handlers;
 
-import java.util.HashMap;
-import java.util.Set;
-
-import com.card.Card;
 import com.card.Deck;
+import com.games.Blackjack;
 
 public class BlackjackHandler implements Runnable {
 
 	private Deck cards;
 	private int numOfPlayers;
+	private Blackjack blackjack;
 
 	public BlackjackHandler(Deck deck, int players) {
 		this.cards = deck;
 		this.numOfPlayers = players;
+		blackjack = new Blackjack(deck);
 	}
 
 	@Override
 	public void run() {
-		cards.dealBlackjack(numOfPlayers);
+		blackjack.dealBlackjack(5);
 	}
 
 }
